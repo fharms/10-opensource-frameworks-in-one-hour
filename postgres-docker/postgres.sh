@@ -1,29 +1,40 @@
 #!/bin/bash
 
-image="postgres"
-container_name="postgres"
+image_name="postgres-tenframeworks"
 password="verysecret"
+port=5432
 
 key="$1"
+container_id=$(docker ps -aqf "ancestor=$image_name")
 
 case $key in
-    install)
-	echo "Attempting to retrieve image '$container_name'"
-	docker pull $image
-	
-	echo "Attempting to remove image '$container_name', if already exists"
-	docker rm $container_name
-	
-	echo "Creating PostgreSQL image with name: '$container_name'"
-	docker create --name $container_name -e POSTGRES_PASSWORD=$password $image
+    build)
+	    echo "Attempting to build image '$image_name'"
+		cp ../springboot/src/main/resources/schema.sql ./init.sql
+		docker build -t $image_name .
     	;;
     start)
-	docker start $container_name -d
+		echo "Starting container"
+		docker run -d -p $port:$port $image_name
     	;;
     client)
-	docker run -it --rm --link $container_name:server $image psql -h server -U postgres
-	;;
-    stop)
-	docker stop $container_name
+		docker run -it --rm --link $image_name:server postgres psql -h server -U postgres
+		;;
+	stop)
+		echo "Attempting to stop containers running image '$image_name'"
+		docker stop $container_id
+		;;
+    stop-all)
+		echo "Attempting to remove all stopped containers"
+		docker rm $(docker ps -a -q) 2>&1 > /dev/null
     	;;
+	clear)
+		$0 stop
+
+		echo "Attempting to remove containers for image '$image_name'"
+		docker rm $container_id
+		;;
+	*)
+		echo "Unknown command '$key'..."
+		;;
 esac
