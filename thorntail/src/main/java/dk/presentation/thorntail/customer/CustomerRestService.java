@@ -1,6 +1,6 @@
 package dk.presentation.thorntail.customer;
 
-import dk.presentation.thorntail.domain.model.Customer;
+import dk.presentation.thorntail.customer.entity.Customer;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
 import java.util.HashMap;
 import java.util.Map;
 
-@Path("/customer")
+@Path("/customers")
 public class CustomerRestService {
 
     static private Map<Long, Customer> customers = new HashMap();

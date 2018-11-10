@@ -1,4 +1,4 @@
-# The simplest JAX-RS demo example with Thorntail.
+# Simple Thorntail JAX-RS demo example.
 
 This example takes a normal JAX-RS build, show the simplest configuration for running an JAX-RS application
 with Thorntail 
@@ -8,7 +8,7 @@ project does *not* need to specify those.
 
 ## Run
 
-* mvn thorntail:run
+* mvnw thorntail:run
 * From your IDE, run class `org.wildfly.swarm.Swarm`
 
 ## Use

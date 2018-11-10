@@ -12,18 +12,23 @@
     <description>Demo project for Thorntail</description>
 
     <properties>
+        <maven-compiler-plugin-version>3.8.0</maven-compiler-plugin-version>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <version.thorntail>2.2.1.Final</version.thorntail>
-        <version.war.plugin>2.5</version.war.plugin>
-        <lombok.version>LATEST</lombok.version>
+
+        <thorntail.version>2.2.1.Final</thorntail.version>
+        <war.plugin.version>2.5</war.plugin.version>
+        <lombok.version>1.18.4</lombok.version>
     </properties>
 
     <build>
         <plugins>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>${version.war.plugin}</version>
+                <version>${war.plugin.version}</version>
                 <configuration>
                     <!-- Java EE 7 doesn't require web.xml, Maven needs to catch up! -->
                     <failOnMissingWebXml>false</failOnMissingWebXml>
@@ -32,7 +37,7 @@
             <plugin>
                 <groupId>io.thorntail</groupId>
                 <artifactId>thorntail-maven-plugin</artifactId>
-                <version>${version.thorntail}</version>
+                <version>${thorntail.version}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -48,7 +53,7 @@
             <dependency>
                 <groupId>io.thorntail</groupId>
                 <artifactId>bom</artifactId>
-                <version>${version.thorntail}</version>
+                <version>${thorntail.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -63,6 +68,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
