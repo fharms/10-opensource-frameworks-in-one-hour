@@ -1,0 +1,12 @@
+thorntail:
+  logging:
+    org.hibernate: info
+    org.hibernate.SQL: info
+    org.hibernate.type.descriptor.sql: info
+  datasources:
+    data-sources:
+      MyDS:
+        driver-name: h2
+        connection-url: jdbc:h2:file:~/mapstruct;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+        user-name: sa
+        password: sa

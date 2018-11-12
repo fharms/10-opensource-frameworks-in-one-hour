@@ -1,0 +1,4 @@
+insert into customers (customer_id, first_name, last_name, address, zip_code, city) VALUES (1, 'Tom', 'Cruse', 'Hollywood Blvd 1', 90038, 'Hollywood');
+insert into customers (customer_id, first_name, last_name, address, zip_code, city) VALUES (2, 'Tom', 'Hanks', 'Hollywood Blvd 2', 90038, 'Hollywood');
+insert into customers (customer_id, first_name, last_name, address, zip_code, city) VALUES (3, 'Halle', 'Berry', 'Hollywood Blvd 3', 90038, 'Hollywood');
+insert into customers (customer_id, first_name, last_name, address, zip_code, city) VALUES (4, 'Natalie', 'Portman', 'Hollywood Blvd 4', 90038, 'Hollywood');
