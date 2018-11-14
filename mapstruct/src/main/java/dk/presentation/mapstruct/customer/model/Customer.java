@@ -19,9 +19,9 @@ public class Customer {
 
     Long customerId;
 
-    String firstName;
+    String givenName;
 
-    String lastName;
+    String sureName;
 
     String address;
 

@@ -1,12 +1,13 @@
 package dk.presentation.mapstruct.order.mapper;
 
+import dk.presentation.mapstruct.customer.mapper.CustomerEntityCustomerDTOMapper;
 import dk.presentation.mapstruct.order.entity.OrderEntity;
 import dk.presentation.mapstruct.order.model.Order;
 import org.mapstruct.DecoratedWith;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(uses = CustomerEntityCustomerDTOMapper.class)
 @DecoratedWith(OrderEntityDecorator.class)
 public interface OrderEntityOrderDTOMapper {
 

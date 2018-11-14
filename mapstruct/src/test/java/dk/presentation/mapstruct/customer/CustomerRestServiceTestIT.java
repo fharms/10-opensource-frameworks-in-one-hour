@@ -23,7 +23,7 @@ public class CustomerRestServiceTestIT extends ArquillianIntegrationTest {
         .when()
             .get("/customers/{id}", 4L)
         .then()
-            .assertThat().body(equalTo("{\"customerId\":4,\"firstName\":\"Natalie\",\"lastName\":\"Portman\",\"address\":\"Hollywood Blvd 4\",\"zipCode\":90038,\"city\":\"Hollywood\"}"))
+            .assertThat().body(equalTo("{\"customerId\":4,\"givenName\":\"Natalie\",\"sureName\":\"Portman\",\"address\":\"Hollywood Blvd 4\",\"zipCode\":90038,\"city\":\"Hollywood\"}"))
             .statusCode(200);
     }
 }

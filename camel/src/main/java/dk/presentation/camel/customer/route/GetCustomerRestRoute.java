@@ -16,6 +16,8 @@ public class GetCustomerRestRoute extends SpringRouteBuilder  {
     public static final String GET_CUSTOMER_ROUTE_ID = "getCustomerRoute";
 
     public void configure() {
+        //formatter:off
+
         onException(Exception.class)
             .useOriginalMessage()
             .handled(true)
@@ -27,6 +29,7 @@ public class GetCustomerRestRoute extends SpringRouteBuilder  {
             .process(this::setJpaParameters)
             .setProperty("customerId", header("id"))
             .to("jpa:dk.presentation.camel.customer.entity.CustomerEntity?namedQuery=selectCustomerById")
+
             .choice()
                 .when().body(List.class, list -> list.size() > 0)
                     .setBody(exchange -> exchange.getIn().getBody(List.class).get(0))
@@ -34,9 +37,12 @@ public class GetCustomerRestRoute extends SpringRouteBuilder  {
                     .setHeader(Exchange.HTTP_RESPONSE_CODE, constant(404))
                     .setBody(simple("Unable to retrieve customer with id ${property.customerId}"))
             .end();
+
+        //formatter:oon
     }
 
     private void setJpaParameters(Exchange e) {
-        e.getIn().setHeader(JpaConstants.JPA_PARAMETERS_HEADER, Collections.singletonMap("customerId", e.getIn().getHeader("id", Long.class)));
+        e.getIn().setHeader(JpaConstants.JPA_PARAMETERS_HEADER,
+            Collections.singletonMap("customerId", e.getIn().getHeader("id", Long.class)));
     }
 }

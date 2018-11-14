@@ -14,12 +14,21 @@ public class FloggerTest {
 
     private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
+
+    @Test
+    public void testSimpleInfoLogging() {
+        logger
+            .atInfo()
+            .log("Log Info message with: %s", "flogger");
+    }
+
     @Test
     public void testSimpleLogging() {
         logger
             .atFine()
             .log("Log message with: %s", "flogger");
     }
+
 
     @Test
     public void testExtensiveLogging() {

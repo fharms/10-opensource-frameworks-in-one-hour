@@ -1,6 +1,6 @@
 package dk.presentation.thorntail.customer;
 
-import dk.presentation.thorntail.customer.entity.Customer;
+import dk.presentation.thorntail.customer.model.Customer;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

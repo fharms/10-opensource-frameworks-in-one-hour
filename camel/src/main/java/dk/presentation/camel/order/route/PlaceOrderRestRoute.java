@@ -15,6 +15,8 @@ public class PlaceOrderRestRoute extends SpringRouteBuilder  {
     public static final String POST_ORDER_ROUTE_ID = "PostOrderRoute";
 
     public void configure() {
+        //formatter:off
+
         from("direct:placeOrder")
             .onException(Exception.class)
                 .log(LoggingLevel.ERROR, "Error placing order ${exception.stacktrace}")
@@ -25,9 +27,10 @@ public class PlaceOrderRestRoute extends SpringRouteBuilder  {
             .end()
 
             .routeId(POST_ORDER_ROUTE_ID)
-            .transform()
-                .body(Order.class, order -> OrderEntityOrderDTOMapper.MAP_INSTANCE.toOrderEntity(order))
+            .transform().body(Order.class, order -> OrderEntityOrderDTOMapper.MAP_INSTANCE.toOrderEntity(order))
             .to("jpa:dk.presentation.camel.customer.entity.OrderEntity");
+
+        //formatter:on
     }
 
 }

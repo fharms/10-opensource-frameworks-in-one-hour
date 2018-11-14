@@ -1,4 +1,4 @@
-package dk.presentation.thorntail.customer.entity;
+package dk.presentation.thorntail.customer.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

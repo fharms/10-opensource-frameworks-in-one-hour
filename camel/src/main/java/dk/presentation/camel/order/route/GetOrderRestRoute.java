@@ -17,6 +17,8 @@ public class GetOrderRestRoute extends SpringRouteBuilder  {
     public static final String GET_ORDER_ROUTE_ID = "GetOrderRoute";
 
     public void configure() {
+        //formatter:off
+
         from("direct:getOrder")
             .onException(Exception.class)
                 .log(LoggingLevel.ERROR, "Error placing order ${exception.stacktrace}")
@@ -30,6 +32,7 @@ public class GetOrderRestRoute extends SpringRouteBuilder  {
             .process(this::setJpaParameters)
             .setProperty("orderId", header("orderId"))
             .to("jpa:dk.presentation.camel.order.entity.OrderEntity?namedQuery=selectOrderById")
+
             .choice()
                 .when().body(List.class, list -> list.size() > 0)
                     .setBody(exchange -> exchange.getIn().getBody(List.class).get(0))
@@ -37,6 +40,8 @@ public class GetOrderRestRoute extends SpringRouteBuilder  {
                 .setHeader(Exchange.HTTP_RESPONSE_CODE, constant(404))
                 .setBody(simple("Unable to retrieve order with id ${property.orderId}"))
             .end();
+
+        //formatter:on
     }
 
     private void setJpaParameters(Exchange e) {
