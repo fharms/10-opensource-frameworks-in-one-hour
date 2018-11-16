@@ -15,4 +15,4 @@ Please look at the specific documentation for using the examples, in the sub-fol
 
 The presentation (in PDF format, roughly 9,3 MegaBytes large), can be downloaded from:
 
-* [10 OSS frameworks in 1 hour.pdf](./10 OSS frameworks in 1 hour.pdf)
+* ["10 OSS frameworks in 1 hour" as PDF](./presentation.pdf)
