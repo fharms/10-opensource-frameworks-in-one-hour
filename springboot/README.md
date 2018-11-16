@@ -10,12 +10,19 @@ webservice is documented by Swagger, and follow the HATEOAS principles.
 For building the code, please use:
 
     mvnw install
-    
-For running the application, please use:
-
-    mvn spring-boot:run
 
 ## Use
+
+This example depends upon a couple of things.
+
+1. The PostgreSQL database, made available from the PostgreSQL dastabase image utility (see: [Postgres Docker example](../postgres-docker`)).
+2. Data in said database, populated by the Spring Boot example (see: [Spring Boot example](../springboot`)).
+
+These dependencies must be run, before being able to run *this* sample / demo application.
+
+Then, for running the application, please use:
+
+    mvn spring-boot:run
 
 Since this service follows the HATEOAS principles, it's structure is fully navigable from the URL: `http://localhost:8080`.
 

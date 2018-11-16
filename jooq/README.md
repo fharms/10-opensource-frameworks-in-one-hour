@@ -25,4 +25,4 @@ This example depends upon a couple of things.
 
 These dependencies must be run, before being able to run *this* sample / demo application.
 
-The run the applications from your IDE.
+Then run the applications from your IDE.
