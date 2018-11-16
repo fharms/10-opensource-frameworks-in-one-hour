@@ -20,8 +20,8 @@ For running the application, open the project in your IDE, and then run the Java
 
 This example depends upon a couple of things.
 
-1. The PostgreSQL database, made available from the PostgreSQL dastabase image utility (see: [Postgres Docker example](../postgres-docker`)).
-2. Data in said database, populated by the Spring Boot example (see: [Spring Boot example](../springboot`)).
+1. The PostgreSQL database, made available from the PostgreSQL dastabase image utility (see: [Postgres Docker example](../postgres-docker/README.md`)).
+2. Data in said database, populated by the Spring Boot example (see: [Spring Boot example](../springboot/README.md`)).
 
 These dependencies must be run, before being able to run *this* sample / demo application.
 
