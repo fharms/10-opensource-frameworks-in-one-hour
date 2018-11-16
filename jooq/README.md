@@ -7,7 +7,7 @@ This example takes a a look at a couple of jOOQ features, more specifically:
 
 ## Run
 
-For building the code
+For building the code, please use:
 
     mvnw install
 

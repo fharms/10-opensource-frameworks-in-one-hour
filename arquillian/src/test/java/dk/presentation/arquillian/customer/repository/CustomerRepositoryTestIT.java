@@ -16,6 +16,7 @@ public class CustomerRepositoryTestIT extends ArquillianIntegrationTest {
     @Inject
     CustomerRepository customerRepository;
 
+    //*** Run the test class instead ***
     @Test
     public void callGetCustomerWithCorrectId() {
         final Customer customer = customerRepository.find(1L);

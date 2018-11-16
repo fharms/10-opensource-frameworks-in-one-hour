@@ -17,6 +17,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 @RunWith(Arquillian.class)
 public class OrderRestServiceTestIT extends ArquillianIntegrationTest {
 
+    // **** run the test class instead ***
     @Test
     public void placeOrderWithRestAPI() {
         final Order expectedOrder = buildOrder();
