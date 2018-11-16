@@ -24,16 +24,16 @@ case $key in
 		echo "Attempting to stop containers running image '$image_name'"
 		docker stop $container_id
 		;;
-    stop-all)
-		echo "Attempting to remove all stopped containers"
-		docker rm $(docker ps -a -q) 2>&1 > /dev/null
-    	;;
 	clear)
 		$0 stop
 
 		echo "Attempting to remove containers for image '$image_name'"
 		docker rm $container_id
 		;;
+    clear-all)
+            echo "Attempting to remove all stopped containers"
+            docker rm $(docker ps -a -q) 2>&1 > /dev/null
+            ;;
 	*)
 		echo "Unknown command '$key'..."
 		;;
